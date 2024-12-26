@@ -1,0 +1,27 @@
+{
+  "name": "event-banner",
+  "version": "1.0.0",
+  "description": "A web component for displaying event banners",
+  "main": "src/event-banner.js",
+  "module": "src/event-banner.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve demo"
+  },
+  "keywords": [
+    "web-components",
+    "banner",
+    "event",
+    "custom-element"
+  ],
+  "author": {
+    "name": "frmachao",
+    "email": "frmachao@gmail.com",
+    "url": "https://github.com/frmachao"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+} 
