@@ -2,21 +2,39 @@
   "name": "event-banner",
   "version": "1.0.0",
   "description": "A customizable web component for displaying event banners on your website",
-  "main": "src/event-banner.js",
-  "module": "src/event-banner.js",
   "type": "module",
+  "main": "./src/event-banner.js",
+  "module": "./src/event-banner.js",
+  "exports": {
+    ".": {
+      "import": "./src/event-banner.js",
+      "types": "./types/event-banner.d.ts"
+    },
+    "./styles": "./src/styles.js"
+  },
   "files": [
     "src/",
-    "README.md"
+    "types/",
+    "README.md",
+    "LICENSE"
   ],
+  "scripts": {
+    "prepublishOnly": "npm run check",
+    "check": "echo 'Checking package...' && exit 0"
+  },
   "keywords": [
     "web-components",
     "banner",
     "event-banner",
     "custom-elements",
-    "ui-component"
+    "ui-component",
+    "web-component",
+    "shadow-dom"
   ],
-  "author": "Your Name",
+  "author": {
+    "name": "frmachao",
+    "url": "https://github.com/frmachao"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",

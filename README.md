@@ -7,20 +7,33 @@ A customizable web component for displaying event banners on your website. Easy 
 ## Installation
 
 ```bash
+# Using npm
 npm install event-banner
+
+# Using yarn
+yarn add event-banner
+
+# Using pnpm
+pnpm add event-banner
 ```
 
 ## Usage
 
-Import and use the component in your HTML:
+### Using ES modules
+```js
+// Import the component
+import 'event-banner';
 
-```html
-<script type="module" src="path/to/event-banner.js"></script>
-
+// Use in your HTML
 <event-banner>
   <img slot="icon" src="icon.svg" alt="Icon">
   <a slot="link">Your message here</a>
 </event-banner>
+```
+
+### Using CDN
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/event-banner"></script>
 ```
 
 ## Attributes
