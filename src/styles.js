@@ -43,13 +43,13 @@ export const styles = `
   .banner-link:hover {
     text-decoration: underline;
   }
-
-  .close-button {
-    background: none;
-    border: none;
-    padding: 2px;
+  .banner-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     flex-shrink: 0;
+    padding: 2px;
   }
 
   .banner-close:hover {

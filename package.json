@@ -1,11 +1,12 @@
 {
   "name": "event-banner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A customizable web component for displaying event banners on your website",
   "type": "module",
   "files": [
     "src/",
     "types/",
+    "docs/btn_close.svg",
     "README.md",
     "LICENSE"
   ],

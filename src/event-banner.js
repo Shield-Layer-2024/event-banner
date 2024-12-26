@@ -1,5 +1,9 @@
 import { styles } from "./styles.js";
 
+const btn_close_svg=`<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2.09012 2.09012C2.21028 1.96996 2.4051 1.96996 2.52526 2.09012L6 5.56486L9.47474 2.09012C9.5949 1.96996 9.78972 1.96996 9.90988 2.09012C10.03 2.21028 10.03 2.4051 9.90988 2.52526L6.43514 6L9.90988 9.47474C10.03 9.5949 10.03 9.78972 9.90988 9.90988C9.78972 10.03 9.5949 10.03 9.47474 9.90988L6 6.43514L2.52526 9.90988C2.4051 10.03 2.21028 10.03 2.09012 9.90988C1.96996 9.78972 1.96996 9.5949 2.09012 9.47474L5.56486 6L2.09012 2.52526C1.96996 2.4051 1.96996 2.21028 2.09012 2.09012Z" fill="#9397EB"/>
+</svg>
+`
 class EventBanner extends HTMLElement {
   static get observedAttributes() {
     return ["position", "width", "fixed"];
@@ -101,9 +105,7 @@ class EventBanner extends HTMLElement {
       </div>
       <div class="banner-close" part="close-container">
         <slot name="close">
-           <button class="close-button">
-            <img src="./btn_close.svg" alt="close">
-           </button>
+            ${btn_close_svg}
         </slot>
       </div>
     `;
