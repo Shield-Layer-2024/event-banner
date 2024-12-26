@@ -40,9 +40,6 @@ export const styles = `
     color: #FFF;
   }
 
-  .banner-link:hover {
-    text-decoration: underline;
-  }
   .banner-close {
     display: flex;
     align-items: center;
