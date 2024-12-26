@@ -2,6 +2,8 @@
 
 A customizable web component for displaying event banners on your website. Easy to integrate and fully responsive.
 
+[Demo](https://shield-layer-2024.github.io/event-banner/)
+
 ## Installation
 
 ```bash
