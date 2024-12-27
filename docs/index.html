@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event Banner Demo</title>
   <script type="module" src="https://cdn.jsdelivr.net/gh/Shield-Layer-2024/event-banner@main/src/event-banner.js"></script>
-  <!-- <script type="module" src="../src/event-banner.js"></script> -->
   <style>
     body,
     html {
@@ -148,7 +147,7 @@
 
   <!-- Fixed position banner example -->
   <event-banner id="banner-1" position="30">
-    <img src="./banner.svg" alt="Info icon" />
+    <img src="./banner.svg" alt="Info icon" slot="icon"/>
     <a slot="link" href="https://app.shieldlayer.xyz/#/home" target="_blank">
       This position=30% banner
     </a>
