@@ -37,7 +37,7 @@ import 'event-banner';
 ### Using CDN
 
 ```html
-<script type="module" src="https://cdn.jsdelivr.net/npm/event-banner"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/event-banner@latest/src/event-banner.js"></script>
 ```
 
 ## Attributes
