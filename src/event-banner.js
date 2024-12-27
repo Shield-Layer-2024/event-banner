@@ -98,7 +98,9 @@ class EventBanner extends HTMLElement {
     template.innerHTML = `
       <style>${styles}</style>
       <div class="banner-icon-container" part="icon-container">
-          <slot name="icon"></slot>
+          <slot name="icon">
+            <img src="../docs/banner.svg" alt="Info icon" />
+          </slot>
       </div>
       <div class="banner-link" part="link-container">
         <slot name="link"></slot>
