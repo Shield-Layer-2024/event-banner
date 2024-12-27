@@ -1,199 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Event Banner Demo</title>
-    <script type="module" src="https://cdn.jsdelivr.net/gh/Shield-Layer-2024/event-banner@main/src/event-banner.js"></script>
-    <style>
-      body,
-      html {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, sans-serif;
-        min-height: 100vh;
-        background-color: rgba(5, 7, 15, 1);
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        --bg-nav: linear-gradient(
-          to bottom,
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Banner Demo</title>
+  <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/Shield-Layer-2024/event-banner@main/src/event-banner.js"></script> -->
+  <script type="module" src="../src/event-banner.js"></script>
+  <style>
+    body,
+    html {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, sans-serif;
+      min-height: 100vh;
+      background-color: rgba(5, 7, 15, 1);
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      --bg-nav: linear-gradient(to bottom,
           rgba(115, 121, 255, 0.451) 0%,
           rgba(115, 121, 255, 0.451) 68.67%,
-          rgba(115, 121, 255, 0.451) 100%
-        );
-      }
+          rgba(115, 121, 255, 0.451) 100%);
+    }
 
-      /* 导航栏样式 */
-      .navbar {
-        background: var(--bg-nav);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        padding: 1rem 2rem;
-      }
+    /* Navigation bar styles */
+    .navbar {
+      background: var(--bg-nav);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      padding: 1rem 2rem;
+    }
 
-      .nav-content {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-      .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: white;
-        text-decoration: none;
-      }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
 
-      /* 内容区域 */
-      .content {
-        max-width: 800px;
-        margin: 4rem auto;
-        padding: 0 2rem;
-      }
+    .content {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
 
-      .content h1 {
-        color: rgba(115, 121, 255, 1);
-        margin-bottom: 2rem;
-        text-align: center;
-      }
+    .content h1 {
+      color: rgba(115, 121, 255, 1);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
 
-      .content p {
-        color: rgba(147, 151, 235, 1);
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-      }
+    .content p {
+      color: rgba(147, 151, 235, 1);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
 
-      .demo-section {
-        background: rgba(5, 7, 15, 0.8);
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        margin: 2rem 0;
-      }
+    code {
+      display: block;
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 4px;
+      margin: 1rem 0;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
 
-      .demo-section h2 {
-        color: rgba(115, 121, 255, 1);
-        margin-bottom: 1rem;
-      }
+    .banner-icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      margin-left: 0.75rem;
+    }
 
-      code {
-        display: block;
-        background: #f8f9fa;
-        padding: 1rem;
-        border-radius: 4px;
-        margin: 1rem 0;
-        font-family: monospace;
-        white-space: pre-wrap;
-      }
+    .banner-icon-max {
+      height: 50px;
+      width: 50px;
+    }
 
-      .demo-section ul {
-        list-style: none;
-        padding-left: 1rem;
-      }
+    .close-button {
+      background: none;
+      border: none;
+      padding: 2px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
 
-      .demo-section li {
-        margin-bottom: 0.5rem;
-        color: #666;
-      }
-      .banner-icon {
-        width: 24px;
-        height: 24px;
-        object-fit: contain;
-      }
-      .banner-icon-max {
-        height: 50px;
-        width: 50px;
-      }
-      .close-button {
-        background: none;
-        border: none;
-        padding: 2px;
-        cursor: pointer;
-        flex-shrink: 0;
-      }
-      #banner-1::part(banner) {
-        background: red;
-      }
+    #banner-1::part(banner) {
+      background: red;
+    }
 
-      /* Part 样式示例 */
-      #custom-parts-banner::part(icon-container) {
-        background: sandybrown;
-        padding: 4px;
-        border-radius: 4px;
-      }
+    /* Part style */
+    #custom-parts-banner::part(icon-container) {
+      background: sandybrown;
+      padding: 4px;
+      border-radius: 4px;
+    }
 
-      #custom-parts-banner::part(link-container) {
-        border: 2px solid salmon;
-      }
+    #custom-parts-banner::part(link-container) {
+      border: 2px solid salmon;
+    }
 
-      #custom-parts-banner::part(close-container) {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 4px;
-        border-radius: 4px;
-        transition: background-color 0.3s;
-      }
+    #custom-parts-banner::part(close-container) {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
 
-      #custom-parts-banner::part(close-container):hover {
-        background: slateblue;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- 静态横幅示例 -->
-    <event-banner fixed="false" width="100%">
-      <img class="banner-icon" slot="icon" src="logo-x.jpg" alt="Info icon" />
-      <a slot="link">static banner "fixed false" "width 100%"</a>
-    </event-banner>
+    #custom-parts-banner::part(close-container):hover {
+      background: slateblue;
+    }
+  </style>
+</head>
 
-    <!-- 导航栏 -->
-    <nav class="navbar">
-      <div class="nav-content">
-        <a href="#" class="logo">Event Banner Demo</a>
-      </div>
-    </nav>
+<body>
+  <!-- Static banner example -->
+  <event-banner fixed="false" width="100%">
+    <img src="./banner.svg" alt="Info icon" slot="icon"/>
+    <a href="https://github.com/Shield-Layer-2024/event-banner#readme" slot="link">static banner "fixed false" "width
+      100%"</a>
+  </event-banner>
 
-    <!-- 组件介绍 -->
-    <main class="content">
-      <h1>Event Banner Component</h1>
-      <p>
-        A customizable web component for displaying event banners on your
-        website. Easy to integrate and fully responsive.
-        <a href="https://github.com/Shield-Layer-2024/event-banner#readme" style="display: block; margin-top: 1rem; color: rgba(255, 86, 123, 1); text-decoration: none;">
-          👉 View Full Documentation in README
-        </a>
-      </p>
-    </main>
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="#" class="logo">Event Banner Demo</a>
+    </div>
+  </nav>
 
-    <!-- 固定位置的横幅示例 -->
-    <event-banner id="banner-1" position="30">
-      <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon" />
-      <a slot="link" href="https://app.shieldlayer.xyz/#/home" target="_blank">
-        This default banner app.shieldlayer.xyz
+  <!-- Component Introduction -->
+  <main class="content">
+    <h1>Event Banner Component</h1>
+    <p>
+      A customizable web component for displaying event banners on your
+      website. Easy to integrate and fully responsive.
+      <a href="https://github.com/Shield-Layer-2024/event-banner#readme"
+        style="display: block; margin-top: 1rem; color: rgba(255, 86, 123, 1); text-decoration: none;">
+        👉 View Full Documentation in README
       </a>
-    </event-banner>
+    </p>
+  </main>
 
-    <event-banner style="border: 2px solid red">
-      <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon" />
-      <a slot="link"> middle (default 50%) border red</a>
-    </event-banner>
+  <!-- Fixed position banner example -->
+  <event-banner id="banner-1" position="30">
+    <img src="./banner.svg" alt="Info icon" />
+    <a slot="link" href="https://app.shieldlayer.xyz/#/home" target="_blank">
+      This position=30% banner
+    </a>
+  </event-banner>
 
-    <event-banner position="70" width="90%">
-      <img
-        class="banner-icon banner-icon-max"
-        slot="icon"
-        src="./logo-x.jpg"
-        alt="Info icon"
-      />
-      <a slot="link" style="font-size: 20px; font-weight: 600"
-        >This banner is at 70% max icon
-      </a>
-      <button slot="close" class="close-button">
-        <img src="./btn_close.svg" alt="close" style="width: 30px;height: 30px;" />
-      </button>
-    </event-banner>
+  <event-banner style="border: 2px solid red">
+    <img src="./banner.svg" alt="Info icon" slot="icon"/>
+    <a slot="link"> middle (default 50%) border red ; lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+      quos.</a>
+  </event-banner>
 
-    <!-- Part 样式示例横幅 -->
-    <event-banner id="custom-parts-banner" position="90">
-      <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon" />
-      <a slot="link">This banner demonstrates ::part styling customization</a>
-    </event-banner>
-  </body>
+  <event-banner position="70" width="90%">
+    <img src="./banner.svg" alt="Info icon" style="height: 100px;" slot="icon"/>
+    <a slot="link" style="font-size: 20px; font-weight: 600; color: sandybrown;">
+      This banner is width 90% position70%
+    </a>
+    <button slot="close" class="close-button">
+      <img src="./btn_close.svg" alt="close" style="width: 30px;height: 30px;" />
+    </button>
+  </event-banner>
+
+  <!-- Part styling example banner -->
+  <event-banner id="custom-parts-banner" position="90">
+    <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon"/>
+    <a slot="link">This banner demonstrates ::part styling customization</a>
+  </event-banner>
+</body>
+
 </html>

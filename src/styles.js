@@ -2,7 +2,6 @@ export const styles = `
   :host {
     display: flex;
     align-items: center;
-    padding: 12px 8px 12px 22px;
     border-radius: 3px;
     border: 0.5px solid var(--sub_6, #454999);
     background-color: #000;
@@ -26,18 +25,18 @@ export const styles = `
   }
   .banner-link {
     flex: 1;
-    color: #FFF;
     font-weight: 500;
     font-family: Inter;
     font-size: 12px;
+    padding: 12px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
   }
   ::slotted([slot="link"]) {
-    cursor: pointer;
-    text-decoration: none;
     color: #FFF;
+    text-decoration: none;
   }
 
   .banner-close {
@@ -47,6 +46,7 @@ export const styles = `
     cursor: pointer;
     flex-shrink: 0;
     padding: 2px;
+    margin-right: 0.75rem;
   }
 
   .banner-close:hover {

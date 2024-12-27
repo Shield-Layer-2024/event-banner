@@ -6,7 +6,6 @@
   "files": [
     "src/",
     "types/",
-    "docs/btn_close.svg",
     "README.md",
     "LICENSE"
   ],
