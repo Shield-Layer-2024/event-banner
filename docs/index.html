@@ -23,7 +23,7 @@
         );
       }
 
-      /* 导航栏样式 */
+      /* Navigation bar styles */
       .navbar {
         background: var(--bg-nav);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -42,7 +42,6 @@
         text-decoration: none;
       }
 
-      /* 内容区域 */
       .content {
         max-width: 800px;
         margin: 4rem auto;
@@ -60,20 +59,6 @@
         line-height: 1.6;
         margin-bottom: 1.5rem;
       }
-
-      .demo-section {
-        background: rgba(5, 7, 15, 0.8);
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        margin: 2rem 0;
-      }
-
-      .demo-section h2 {
-        color: rgba(115, 121, 255, 1);
-        margin-bottom: 1rem;
-      }
-
       code {
         display: block;
         background: #f8f9fa;
@@ -82,16 +67,6 @@
         margin: 1rem 0;
         font-family: monospace;
         white-space: pre-wrap;
-      }
-
-      .demo-section ul {
-        list-style: none;
-        padding-left: 1rem;
-      }
-
-      .demo-section li {
-        margin-bottom: 0.5rem;
-        color: #666;
       }
       .banner-icon {
         width: 24px;
@@ -113,7 +88,7 @@
         background: red;
       }
 
-      /* Part 样式示例 */
+      /* Part style */
       #custom-parts-banner::part(icon-container) {
         background: sandybrown;
         padding: 4px;
@@ -137,20 +112,20 @@
     </style>
   </head>
   <body>
-    <!-- 静态横幅示例 -->
+    <!-- Static banner example -->
     <event-banner fixed="false" width="100%">
       <img class="banner-icon" slot="icon" src="logo-x.jpg" alt="Info icon" />
       <a slot="link">static banner "fixed false" "width 100%"</a>
     </event-banner>
 
-    <!-- 导航栏 -->
+    <!-- Navigation bar -->
     <nav class="navbar">
       <div class="nav-content">
         <a href="#" class="logo">Event Banner Demo</a>
       </div>
     </nav>
 
-    <!-- 组件介绍 -->
+    <!-- Component Introduction -->
     <main class="content">
       <h1>Event Banner Component</h1>
       <p>
@@ -162,7 +137,7 @@
       </p>
     </main>
 
-    <!-- 固定位置的横幅示例 -->
+    <!-- Fixed position banner example -->
     <event-banner id="banner-1" position="30">
       <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon" />
       <a slot="link" href="https://app.shieldlayer.xyz/#/home" target="_blank">
@@ -172,7 +147,7 @@
 
     <event-banner style="border: 2px solid red">
       <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon" />
-      <a slot="link"> middle (default 50%) border red</a>
+      <a slot="link"> middle (default 50%) border red lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</a>
     </event-banner>
 
     <event-banner position="70" width="90%">
@@ -190,7 +165,7 @@
       </button>
     </event-banner>
 
-    <!-- Part 样式示例横幅 -->
+    <!-- Part styling example banner -->
     <event-banner id="custom-parts-banner" position="90">
       <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon" />
       <a slot="link">This banner demonstrates ::part styling customization</a>

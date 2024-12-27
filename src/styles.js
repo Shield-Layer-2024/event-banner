@@ -33,11 +33,8 @@ export const styles = `
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  ::slotted([slot="link"]) {
     cursor: pointer;
     text-decoration: none;
-    color: #FFF;
   }
 
   .banner-close {
