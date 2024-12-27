@@ -2,7 +2,7 @@
 
 A customizable web component for displaying event banners on your website. Easy to integrate and fully responsive.
 
-![event-banner](https://cdn.jsdelivr.net/gh/Shield-Layer-2024/event-banner@main/event-banner.png)
+![event-banner](https://cdn.jsdelivr.net/gh/Shield-Layer-2024/event-banner@main/screenshot/event-banner.png)
 
 [Demo](https://shield-layer-2024.github.io/event-banner/)
 
