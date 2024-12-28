@@ -6,7 +6,7 @@ const btn_close_svg=`<svg width="12" height="12" viewBox="0 0 12 12" fill="none"
 `
 class EventBanner extends HTMLElement {
   static get observedAttributes() {
-    return ["position", "width", "fixed"];
+    return ["top", "width", "fixed"];
   }
 
   constructor() {
@@ -15,13 +15,12 @@ class EventBanner extends HTMLElement {
   }
 
   // 获取属性，设置默认值
-  get position() {
-    // 默认位于50%的位置（中间）
-    return this.getAttribute("position") || "50%";
+  get top() {
+    return this.getAttribute("top") || "20%";
   }
 
   get width() {
-    return this.getAttribute("width") || "386px";
+    return this.getAttribute("width");
   }
 
   get fixed() {
@@ -29,17 +28,14 @@ class EventBanner extends HTMLElement {
   }
 
   // 验证并格式化position值
-  validatePosition(position) {
-    // 如果是数字，加上百分号
-    if (!isNaN(position)) {
-      return `${position}%`;
+  validateTop(top) {
+    if (!top) return "20%";
+    // 如果是纯数字，加上百分号
+    if (!isNaN(top)) {
+      return `${top}%`;
     }
-    // 如果已经带有百分号，直接返回
-    if (position.endsWith("%")) {
-      return position;
-    }
-    // 其他情况返回默认值50%
-    return "50%";
+    // 如果已经是合法的CSS值（包含单位），直接返回
+    return top;
   }
 
   connectedCallback() {
@@ -74,7 +70,9 @@ class EventBanner extends HTMLElement {
 
   updateStyles() {
     // 设置宽度
-    this.style.width = this.width;
+    if(this.width){
+      this.style.width = this.width;
+    }
 
     // 设置定位
     if (this.fixed) {
@@ -83,10 +81,8 @@ class EventBanner extends HTMLElement {
       this.style.transform = "translateX(-50%)";
 
       // 设置垂直位置
-      const position = this.validatePosition(this.position);
-
-      this.style.top = position;
-      this.style.transform = "translate(-50%, -50%)";
+      const topValue = this.validateTop(this.top);
+      this.style.top = topValue;
     } else {
       this.style.position = "static";
       this.style.transform = "none";
@@ -98,9 +94,7 @@ class EventBanner extends HTMLElement {
     template.innerHTML = `
       <style>${styles}</style>
       <div class="banner-icon-container" part="icon-container">
-          <slot name="icon">
-            <img src="../docs/banner.svg" alt="Info icon" />
-          </slot>
+          <slot name="icon"></slot>
       </div>
       <div class="banner-link" part="link-container">
         <slot name="link"></slot>
