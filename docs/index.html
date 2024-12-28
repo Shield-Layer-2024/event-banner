@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event Banner Demo</title>
   <script type="module" src="https://cdn.jsdelivr.net/npm/event-banner@latest/src/event-banner.js"></script>
+  <!-- <script type="module" src="../src/event-banner.js"></script> -->
   <style>
     body,
     html {
@@ -89,10 +90,6 @@
       flex-shrink: 0;
     }
 
-    #banner-1::part(banner) {
-      background: red;
-    }
-
     /* Part style */
     #custom-parts-banner::part(icon-container) {
       background: sandybrown;
@@ -114,15 +111,43 @@
     #custom-parts-banner::part(close-container):hover {
       background: slateblue;
     }
+
+    a {
+      color: #454999;
+      text-decoration: none;
+      font-family: Inter;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+    }
+    img[slot="icon"] {
+      object-fit: contain;
+      height: 100%;
+    }
+
+    @media (max-width: 955px) {
+      img[slot="icon"] {
+        height: 53px;
+      }
+    }
+    @media (max-width: 500px) {
+      img[slot="icon"] {
+        height: 53px;
+      }
+    }
+    .custom-banner{
+     border: 2px solid red
+    }
   </style>
 </head>
 
 <body>
   <!-- Static banner example -->
   <event-banner fixed="false" width="100%">
-    <img src="./banner.svg" alt="Info icon" slot="icon"/>
-    <a href="https://github.com/Shield-Layer-2024/event-banner#readme" slot="link">static banner "fixed false" "width
-      100%"</a>
+    <img src="./banner.svg" alt="Info icon" slot="icon" />
+    <div href="https://github.com/Shield-Layer-2024/event-banner#readme" slot="link">static banner "fixed false" "width
+      100%"</div>
   </event-banner>
 
   <!-- Navigation bar -->
@@ -146,33 +171,35 @@
   </main>
 
   <!-- Fixed position banner example -->
-  <event-banner id="banner-1" position="30">
+  <event-banner>
     <img src="./banner.svg" alt="Info icon" slot="icon"/>
-    <a slot="link" href="https://app.shieldlayer.xyz/#/home" target="_blank">
-      This position=30% banner
-    </a>
+    <div slot="link">
+      <span style="margin-right: 0.25rem">ShieldLayer Points to Prizes:</span>
+      <a href="https://github.com/Shield-Layer-2024/event-banner#readme" target="_blank">Join the incentive testnet
+        tasks</a>
+    </div>
   </event-banner>
 
-  <event-banner style="border: 2px solid red">
-    <img src="./banner.svg" alt="Info icon" slot="icon"/>
-    <a slot="link"> middle (default 50%) border red ; lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-      quos.</a>
+  <event-banner class="custom-banner" top="40%">
+    <img src="./banner.svg" alt="Info icon" slot="icon" />
+    <div slot="link"> top (default 20%) border:red
+      quos.</div>
   </event-banner>
 
-  <event-banner position="70" width="90%">
-    <img src="./banner.svg" alt="Info icon" style="height: 100px;" slot="icon"/>
-    <a slot="link" style="font-size: 20px; font-weight: 600; color: sandybrown;">
-      This banner is width 90% position70%
-    </a>
+  <event-banner top="70%" width="90%">
+    <img src="./banner.svg" alt="Info icon" slot="icon" />
+    <div slot="link" style="color: sandybrown;">
+      This banner is width 90% top 70%
+    </div>
     <button slot="close" class="close-button">
-      <img src="./btn_close.svg" alt="close" style="width: 30px;height: 30px;" />
+      <img src="./btn_close.svg" alt="close" />
     </button>
   </event-banner>
 
   <!-- Part styling example banner -->
-  <event-banner id="custom-parts-banner" position="90">
-    <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon"/>
-    <a slot="link">This banner demonstrates ::part styling customization</a>
+  <event-banner id="custom-parts-banner" top="90%">
+    <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon" />
+    <div slot="link">This banner demonstrates ::part styling customization</div>
   </event-banner>
 </body>
 

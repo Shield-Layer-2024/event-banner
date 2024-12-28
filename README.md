@@ -44,8 +44,8 @@ import 'event-banner';
 
 | Attribute  | Description                              | Default   | Example             |
 | ---------- | ---------------------------------------- | --------- | ------------------- |
-| `position` | Percentage from top (for fixed position) | `"50%"`   | `"30%"`, `"70%"`    |
-| `width`    | Banner width                             | `"386px"` | `"100%"`, `"500px"` |
+| `top`      | Position from top (for fixed position)   | `"20%"`   | `"30%"`, `"20px"`, `"2rem"` |
+| `width`    | Banner width                             | `"auto"`  | `"100%"`, `"500px"` |
 | `fixed`    | Fixed positioning                        | `true`    | `"false"`           |
 
 ## Slots
@@ -115,10 +115,10 @@ The component exposes several parts that can be styled from the outside:
 </event-banner>
 ```
 
-### Custom Position (30% from top)
+### Custom top (30% from top)
 
 ```html
-<event-banner position="30">
+<event-banner top="30">
   <img src="./banner.svg" alt="Info icon" slot="icon" />
   <a slot="link">Your message here</a>
 </event-banner>
