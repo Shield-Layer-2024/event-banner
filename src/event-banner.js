@@ -6,12 +6,13 @@ const btn_close_svg=`<svg width="12" height="12" viewBox="0 0 12 12" fill="none"
 `
 class EventBanner extends HTMLElement {
   static get observedAttributes() {
-    return ["top", "width", "fixed"];
+    return ["top", "width", "fixed", "duration"];
   }
 
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    this.closeTimeout = null;
   }
 
   // 获取属性，设置默认值
@@ -25,6 +26,11 @@ class EventBanner extends HTMLElement {
 
   get fixed() {
     return this.getAttribute("fixed") !== "false";
+  }
+
+  get duration() {
+    const duration = parseInt(this.getAttribute("duration"));
+    return isNaN(duration) ? 15000 : duration;
   }
 
   // 验证并格式化position值
@@ -42,29 +48,58 @@ class EventBanner extends HTMLElement {
     this.render();
     this.setupCloseButton();
     this.updateStyles();
+    this.setupAutoClose();
+  }
+
+  disconnectedCallback() {
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout);
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) {
-      this.updateStyles();
+      if (name === 'duration') {
+        this.setupAutoClose();
+      } else {
+        this.updateStyles();
+      }
     }
+  }
+
+  setupAutoClose() {
+    // Clear existing timeout if any
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout);
+    }
+    
+    // Set new timeout if duration > 0
+    if (this.duration > 0) {
+      this.closeTimeout = setTimeout(() => {
+        this.closeBanner();
+      }, this.duration);
+    }
+  }
+
+  closeBanner() {
+    // 添加关闭动画类
+    this.classList.add("closing");
+
+    // 等待动画完成后移除元素
+    this.addEventListener(
+      "transitionend",
+      () => {
+        this.remove();
+      },
+      { once: true }
+    );
   }
 
   setupCloseButton() {
     const closeBanner = this.shadowRoot.querySelector(".banner-close");
 
     closeBanner.addEventListener("click", () => {
-      // 添加关闭动画类
-      this.classList.add("closing");
-
-      // 等待动画完成后移除元素
-      this.addEventListener(
-        "transitionend",
-        () => {
-          this.remove();
-        },
-        { once: true }
-      );
+      this.closeBanner();
     });
   }
 

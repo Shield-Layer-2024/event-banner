@@ -47,6 +47,7 @@ import 'event-banner';
 | `top`      | Position from top (for fixed position)   | `"20%"`   | `"30%"`, `"20px"`, `"2rem"` |
 | `width`    | Banner width                             | `"auto"`  | `"100%"`, `"500px"` |
 | `fixed`    | Fixed positioning                        | `true`    | `"false"`           |
+| `duration` | Auto-close duration in milliseconds.  It will not automatically close if set 0     | `15000`    | `"0"`, `"2000"`     |
 
 ## Slots
 
@@ -146,6 +147,22 @@ The component exposes several parts that can be styled from the outside:
   <button slot="close" class="close-button">
     <img src="./btn_close.svg" alt="close" style="width: 30px;height: 30px;" />
   </button>
+</event-banner>
+```
+
+### Custom Duration
+
+```html
+<!-- Auto-close after 2 seconds -->
+<event-banner duration="2000">
+  <img src="./banner.svg" alt="Info icon" slot="icon" />
+  <a slot="link">This banner will auto-close after 2 seconds</a>
+</event-banner>
+
+<!-- Disable auto-close -->
+<event-banner duration="0">
+  <img src="./banner.svg" alt="Info icon" slot="icon" />
+  <a slot="link">This banner will not auto-close</a>
 </event-banner>
 ```
 

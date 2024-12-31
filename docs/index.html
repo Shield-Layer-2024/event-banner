@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event Banner Demo</title>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/event-banner@1.0.4/src/event-banner.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/event-banner@1.0.5/src/event-banner.js"></script>
   <!-- <script type="module" src="../src/event-banner.js"></script> -->
   <style>
     body,
@@ -187,6 +187,11 @@
       quos.</div>
   </event-banner>
 
+  <event-banner top="50%" duration="0">
+    <img src="./banner.svg" alt="Info icon" slot="icon" />
+    <div slot="link">This will not auto-close</div>
+  </event-banner>
+
   <event-banner top="70%" width="90%">
     <img src="./banner.svg" alt="Info icon" slot="icon" />
     <div slot="link" style="color: sandybrown;">
@@ -202,6 +207,7 @@
     <img class="banner-icon" slot="icon" src="./logo-x.jpg" alt="Info icon" />
     <div slot="link">This banner demonstrates ::part styling customization</div>
   </event-banner>
+
 </body>
 
 </html>

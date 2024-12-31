@@ -1,6 +1,6 @@
 {
   "name": "event-banner",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A customizable web component for displaying event banners on your website",
   "type": "module",
   "files": [
